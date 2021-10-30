@@ -5,7 +5,6 @@ public class PersonnelDirectory {
 
   public static void main(String[] args) {
     Personnel per = new Personnel();
-    totalObjects total = new totalObjects();
     Scanner scan = new Scanner(System.in);
     String firstN, lastN, middleN;
     int empID;
@@ -14,8 +13,6 @@ public class PersonnelDirectory {
 
 
     do {
-
-
       System.out.println("Welcome to the Personnel Directory Management System");
       System.out.println("====================================================");
 
@@ -47,7 +44,6 @@ public class PersonnelDirectory {
 
 
           per.addPersonnel(e1);
-          total.objectAdded();
 
           break;
 
@@ -62,8 +58,11 @@ public class PersonnelDirectory {
 
           boolean found = false;
           int loc = -1;
-          for (int i = 0; i < per.personList.size(); i++) {
-            if (per.personList.get(i).first.equals(firstN) && per.personList.get(i).last.equals(lastN)) {
+          for (int i = 0; i < per.total(); i++) {
+            if (per.getPersonList().get(i).getFirst().equals(firstN) && per.getPersonList()
+                                                                           .get(i)
+                                                                           .getLast()
+                                                                           .equals(lastN)) {
               found = true;
               loc = i;
             }
@@ -71,13 +70,12 @@ public class PersonnelDirectory {
 
           if (found) {
             System.out.println("Found");
-            per.personList.get(loc).printName(0);
+            per.getPersonList().get(loc).printName(0);
 
           } else {
             System.out.println("not found");
             Person p1 = new Person(lastN, firstN, " ");
-            per.personList.add(p1);
-            total.objectAdded();
+            per.getPersonList().add(p1);
           }
 
           break;
@@ -86,15 +84,15 @@ public class PersonnelDirectory {
 
           System.out.println("Enter the order 0: first, middle,  last, 1: first, last, middle, 2: last, first , middle ");
           int order = scan.nextInt();
-          for (int i = 0; i < per.personList.size(); i++) {
+          for (int i = 0; i < per.total(); i++) {
 
-            per.personList.get(i).printName(order);
+            per.getPersonList().get(i).printName(order);
           }
 
           break;
 
         case 4:
-          System.out.println("Total Entries : " + total.getTotalObjects());
+          System.out.println("Total Entries : " + per.total());
 
           break;
 

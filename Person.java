@@ -1,7 +1,19 @@
 public class Person {
-  public String last;
-  public String first;
-  public String middle;
+  public String getLast() {
+    return last;
+  }
+
+  public String getFirst() {
+    return first;
+  }
+
+  public String getMiddle() {
+    return middle;
+  }
+
+  private String last;
+  private String first;
+  private String middle;
 
 
   public Person(String last, String first, String middle) {

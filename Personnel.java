@@ -1,22 +1,10 @@
-import java.util.ArrayList;
+import java.util.List;
 
-public class Personnel {
+public interface Personnel {
 
-  public ArrayList<Person> getPersonList() {
-    return personList;
-  }
+  void addPersonnel(Person p);
 
-  private ArrayList<Person> personList;
+  int total();
 
-  public Personnel() {
-    personList = new ArrayList<>();
-  }
-
-  public void addPersonnel(Person p) {
-    personList.add(p);
-  }
-
-  public int total() {
-    return personList.size();
-  }
+  List<Person> getList();
 }
